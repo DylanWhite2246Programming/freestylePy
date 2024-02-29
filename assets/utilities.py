@@ -15,3 +15,12 @@ def readBalance(name):
                 return row[2]
             else:
                 return 0
+
+global cUser 
+cUser = ''        
+def getCurrentUser():
+    return cUser
+
+def setUser(user):
+    cUser = user
+    
