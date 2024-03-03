@@ -1,6 +1,6 @@
 import tkinter as tk
 from assets import constants
-import drinkMenu
+from Menus.drinkMenu import drinkMenu
 
 def mainMenu(name,balance,admin):
     window = tk.Tk()
@@ -29,11 +29,12 @@ def mainMenu(name,balance,admin):
 
     drinks = ["SOTB", "Vodka Cran", "Screw Driver", "Jungle Juice",
                 "Negroni", "Cosmo", "Margarita", "Cum and Roke"]
+    
     for i, drink in enumerate(drinks):
-        button = tk.Button(window, text=drink, command=lambda drink=drink: drinkMenu.drinkMenu(window, drink, name, balance),bg=constants.BUTTON_BG_COLOR,fg=constants.BUTTON_FG_COLOR)
-        button.grid(row=i//4*2+1,column=i%4)
+        button = tk.Button(window, text=drink, command=lambda drink=drink: drinkMenu(window, drink, name, balance),bg=constants.BUTTON_BG_COLOR,fg=constants.BUTTON_FG_COLOR, height=2, width=20)
+        button.grid(row=i//4*2+1,column=i%4, sticky='ew', padx=5, pady=5)
+        window.grid_columnconfigure(i%4,weight=0)
 
-    window.grid_columnconfigure((0,1,2,3,4,5),weight=1)
     window.grid_rowconfigure(0,weight=0)
 
     window.mainloop()
