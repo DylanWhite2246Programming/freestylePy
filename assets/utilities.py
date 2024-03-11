@@ -28,35 +28,39 @@ def setUser(user):
 
 def calculate_price(name, shots, amount):
     price = 0
-    with open("freestylePy/assets/recipies/"+str(name).replace(" ","")+'.csv') as rfile:
+    #assets\recipies\CumandRoke.csv
+    with open("assets/recipies/"+str(name).replace(" ","")+'.csv') as rfile:
         rreader = csv.reader(rfile)
         for rrow in rreader: 
             if rrow[2]=='true':
-                with open('freestylePy/assets/sources.csv') as sfile:
+                with open('assets/sources.csv') as sfile:
                     sreader = csv.reader(sfile)
                     for srow in sreader:
                         if srow[0]==rrow[1]:
                             #price #amount #ratio
                             price += float(srow[3])*mlpershot*shots*float(rrow[0])
             if rrow[2]=='false':
-                    with open('freestylePy/assets/sources.csv') as sfile:
+                    with open('assets/sources.csv') as sfile:
                         sreader = csv.reader(sfile)
                         for srow in sreader:
                             if srow[0]==rrow[1]:
                                 #price #ratio #mixer amount
                                 price += float(srow[3])*float(rrow[0])*(oz2ml(amount)-(shots*mlpershot))
-    return round(price,2)
+    return '{:.2f}'.format(price)
+    #return ('%.2f', price)
+    #return round(price,2)
 
 def calculate_percentage(name, shots, amount):
     percentage = 0
-    with open("freestylePy/assets/recipies/"+str(name).replace(" ","")+'.csv') as rfile:
+    with open("assets/recipies/"+str(name).replace(" ","")+'.csv') as rfile:
         rreader = csv.reader(rfile)
         for rrow in rreader: 
             if rrow[2]=='true':
-                with open('freestylePy/assets/sources.csv') as sfile:
+                with open('assets/sources.csv') as sfile:
                     sreader = csv.reader(sfile)
                     for srow in sreader:
                         if srow[0]==rrow[1]:
                             #percentage #ratio #amount
                             percentage += float(srow[4])*float(rrow[0])*shots*mlpershot
+    #return ('%.f2',percentage/oz2ml(amount)*100)
     return round(percentage/oz2ml(amount)*100,1)
