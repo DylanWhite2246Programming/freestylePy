@@ -6,4 +6,14 @@ from Menus.mainMenu import mainMenu
 #
 #password_menu.__init__()
 
+running = False
+global readyToAuth
+readtToAuth = False
+
+while running:
+    if readtToAuth:
+        pass
+    else:
+        pass
+
 mainMenu('dylan','100',False)
