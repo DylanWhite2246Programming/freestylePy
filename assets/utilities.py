@@ -63,4 +63,4 @@ def calculate_percentage(name, shots, amount):
                             #percentage #ratio #amount
                             percentage += float(srow[4])*float(rrow[0])*shots*mlpershot
     #return ('%.f2',percentage/oz2ml(amount)*100)
-    return round(percentage/oz2ml(amount)*100,1)
+    return '{:.2f}'.format(round(percentage/oz2ml(amount)*100,1))
