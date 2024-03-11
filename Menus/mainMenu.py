@@ -7,6 +7,9 @@ def mainMenu(name,balance,admin):
     window.geometry(constants.RESOLUTION)
     window.configure(bg=constants.MENU_BG_COLOR)
 
+    def logout_button_pressed():
+        window.destroy()
+
     name_var = tk.StringVar(value=name)
     balance_var = tk.StringVar(value='$'+str(balance))
 
@@ -21,10 +24,10 @@ def mainMenu(name,balance,admin):
     balance_entry.grid(row=0, column=3, padx=5,sticky='w')
 
     if admin:
-        appendUser_button = tk.Button(window, text='Add New User', bg=constants.BUTTON_BG_COLOR,fg=constants.BUTTON_FG_COLOR)
+        appendUser_button = tk.Button(window, text='Add New User', bg=constants.BUTTON_BG_COLOR,fg=constants.BUTTON_FG_COLOR, width=10)
         appendUser_button.grid(row=0,column=4,padx=5)
 
-    logout_button = tk.Button(window, text='Logout',bg=constants.BUTTON_BG_COLOR,fg=constants.BUTTON_FG_COLOR)
+    logout_button = tk.Button(window, text='Logout',command=logout_button_pressed,bg=constants.BUTTON_BG_COLOR,fg=constants.BUTTON_FG_COLOR, width=10)
     logout_button.grid(row=0, column=5, padx=5)
 
     drinks = ["SOTB", "Vodka Cran", "Screw Driver", "Jungle Juice",

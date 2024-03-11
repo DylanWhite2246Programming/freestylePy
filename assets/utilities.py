@@ -28,18 +28,18 @@ def setUser(user):
 
 def calculate_price(name, shots, amount):
     price = 0
-    with open("assets/recipies/"+str(name).replace(" ","")+'.csv') as rfile:
+    with open("freestylePy/assets/recipies/"+str(name).replace(" ","")+'.csv') as rfile:
         rreader = csv.reader(rfile)
         for rrow in rreader: 
             if rrow[2]=='true':
-                with open('assets/sources.csv') as sfile:
+                with open('freestylePy/assets/sources.csv') as sfile:
                     sreader = csv.reader(sfile)
                     for srow in sreader:
                         if srow[0]==rrow[1]:
                             #price #amount #ratio
                             price += float(srow[3])*mlpershot*shots*float(rrow[0])
             if rrow[2]=='false':
-                    with open('assets/sources.csv') as sfile:
+                    with open('freestylePy/assets/sources.csv') as sfile:
                         sreader = csv.reader(sfile)
                         for srow in sreader:
                             if srow[0]==rrow[1]:
@@ -49,11 +49,11 @@ def calculate_price(name, shots, amount):
 
 def calculate_percentage(name, shots, amount):
     percentage = 0
-    with open("assets/recipies/"+str(name).replace(" ","")+'.csv') as rfile:
+    with open("freestylePy/assets/recipies/"+str(name).replace(" ","")+'.csv') as rfile:
         rreader = csv.reader(rfile)
         for rrow in rreader: 
             if rrow[2]=='true':
-                with open('assets/sources.csv') as sfile:
+                with open('freestylePy/assets/sources.csv') as sfile:
                     sreader = csv.reader(sfile)
                     for srow in sreader:
                         if srow[0]==rrow[1]:
