@@ -6,4 +6,4 @@ from Menus.mainMenu import mainMenu
 #
 #password_menu.__init__()
 
-mainMenu('dylan','100',False)
+mainMenu('dylan', '100', False)
