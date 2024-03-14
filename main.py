@@ -16,4 +16,4 @@ while running:
     else:
         pass
 
-mainMenu('dylan','100',True)
+mainMenu('dylan','100', False)

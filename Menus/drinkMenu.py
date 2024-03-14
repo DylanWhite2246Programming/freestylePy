@@ -15,32 +15,36 @@ def drinkMenu(mainMenu, drink, name, balance):
     percentage_var = tk.StringVar(value='0%')
     price_var = tk.StringVar(value='$0')
 
-    name_label = tk.Label(thiswindow, text='Name: ', bg=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR)
+    #row 0 and 1
+    topbar = tk.Frame(thiswindow, width=480, bg=constants.MENU_BG_COLOR)
+    topbar.grid(row=0,column=0,columnspan=5,rowspan=2)
+
+    name_label = tk.Label(topbar, text='Name: ', bg=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR)
     name_label.grid(row=0, column=0, padx=5,sticky='e')
-    name_entry = tk.Entry(thiswindow, textvariable=name_var, state='readonly', readonlybackground=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR)
+    name_entry = tk.Entry(topbar, textvariable=name_var, state='readonly', readonlybackground=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR)
     name_entry.grid(row=0, column=1, padx=5,sticky='w')
 
-    balance_label = tk.Label(thiswindow, text='Balance: ',bg=constants.MENU_BG_COLOR,fg=constants.BUTTON_BG_COLOR)
+    balance_label = tk.Label(topbar, text='Balance: ',bg=constants.MENU_BG_COLOR,fg=constants.BUTTON_BG_COLOR)
     balance_label.grid(row=0,column=2, padx=5,sticky='e')
-    balance_entry = tk.Entry(thiswindow, textvariable=balance_var, state='readonly',readonlybackground=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR,width=10)
+    balance_entry = tk.Entry(topbar, textvariable=balance_var, state='readonly',readonlybackground=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR,width=10)
     balance_entry.grid(row=0, column=3, padx=5,sticky='w')
 
-    back_button = tk.Button(thiswindow, text='Back', bg=constants.BUTTON_BG_COLOR, fg=constants.BUTTON_FG_COLOR, command=thiswindow.destroy, width=10)
+    back_button = tk.Button(topbar, text='Back', bg=constants.BUTTON_BG_COLOR, fg=constants.BUTTON_FG_COLOR, command=thiswindow.destroy, width=10)
     back_button.grid(row=0, column=4, padx=4)
-    logout_button = tk.Button(thiswindow, text='Logout',bg=constants.BUTTON_BG_COLOR,fg=constants.BUTTON_FG_COLOR , width=10)
+    logout_button = tk.Button(topbar, text='Logout',bg=constants.BUTTON_BG_COLOR,fg=constants.BUTTON_FG_COLOR , width=10)
     logout_button.grid(row=0, column=5, padx=5)
 
-    drink_label = tk.Label(thiswindow, text='Drink: ', bg=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR)
+    drink_label = tk.Label(topbar, text='Drink: ', bg=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR)
     drink_label.grid(row=1,column=0,padx=5,sticky='e')
-    drink_entry = tk.Entry(thiswindow, textvariable=drink_var, state='readonly', readonlybackground=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR)
+    drink_entry = tk.Entry(topbar, textvariable=drink_var, state='readonly', readonlybackground=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR)
     drink_entry.grid(row=1,column=1,padx=5,sticky='w')
-    percentage_label = tk.Label(thiswindow, text='Percentage: ', bg=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR)
+    percentage_label = tk.Label(topbar, text='Percentage: ', bg=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR)
     percentage_label.grid(row=1,column=2,sticky='e')
-    percentage_entry = tk.Entry(thiswindow, textvariable=percentage_var, state='readonly', readonlybackground=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR, width=10)
+    percentage_entry = tk.Entry(topbar, textvariable=percentage_var, state='readonly', readonlybackground=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR, width=10)
     percentage_entry.grid(row=1,column=3, sticky='w')
-    price_label = tk.Label(thiswindow, text='Price: ', bg=constants.MENU_BG_COLOR,fg=constants.BUTTON_BG_COLOR)
+    price_label = tk.Label(topbar, text='Price: ', bg=constants.MENU_BG_COLOR,fg=constants.BUTTON_BG_COLOR)
     price_label.grid(row=1,column=4,sticky='e')
-    price_entry = tk.Entry(thiswindow, textvariable=price_var, bg=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR, width=10)
+    price_entry = tk.Entry(topbar, textvariable=price_var, bg=constants.MENU_BG_COLOR, fg=constants.BUTTON_BG_COLOR, width=10)
     price_entry.grid(row=1,column=5,sticky='w')
 
     def amount_button_pressed(button):
@@ -87,6 +91,9 @@ def drinkMenu(mainMenu, drink, name, balance):
     
     shotButtons=[]
     amountButtons=[]
+
+    #row 2
+
 
     for i in range(0,5):
         shotButton = tk.Button(thiswindow,text=str(i+1),width=10, padx= 2,pady=2,bg=constants.BUTTON_BG_COLOR, fg=constants.BUTTON_FG_COLOR)
