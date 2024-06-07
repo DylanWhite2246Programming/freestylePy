@@ -15,7 +15,7 @@ def oz2ml(oz):
 def authenticate_password():
     # Function to authenticate password from CSV file
     entered_password = password_entry.get()
-    with open('assets/users.csv', 'r') as file:
+    with open('freestylePy\assets\users.csv', 'r') as file:
         reader = csv.reader(file)
         for row in reader:
             if row[0] == entered_password:
